@@ -217,3 +217,25 @@ With regards to shooting for both enemies and the player, a prefab has been crea
 ![Paso 5](imgs/Captura31.png)
 
 To enable the player to shoot, the Input System was implemented, specifically utilizing the space bar as the trigger input for shooting actions. This allows the player to initiate projectile firing when the space bar is pressed.
+
+We create a script called Shooter is responsible for handling the shooting functionality in the game. It contains several customizable parameters that allow for fine-tuning of the shooting behavior.
+
+![Paso 5](imgs/Captura32.png)
+
+![Paso 5](imgs/Captura33.png)
+
+In the "General" section, there are fields such as "projectilePrefab," which references the prefab of the projectile to be fired, and "projectileSpeed," which determines how fast the projectiles move. Additionally, there is "projectileLifetime," which specifies the duration before the projectiles are destroyed, and "baseFiringRate," which sets the base rate at which projectiles are fired.
+
+In the "AI" section, there is a bool variable called "useAI" that determines whether the shooting behavior is controlled by AI. If set to true, the isFiring variable is automatically set to true in the Start() method.
+
+The main logic of the script lies in the Fire() method, which checks the isFiring state and starts or stops the FireContinuously coroutine accordingly. If isFiring is true and no coroutine is currently running, the FireContinuously coroutine is started. On the other hand, if isFiring is false and a coroutine is running, it is stopped.
+
+The FireContinuously coroutine handles the continuous firing of projectiles. Within this coroutine, a projectile instance is instantiated at the position of the shooter. The velocity of the projectile is set to move in the upward direction of the shooter, based on the specified projectileSpeed. The projectile is then destroyed after the specified projectileLifetime.
+
+A random time interval is calculated for the next projectile to be fired, taking into account the baseFiringRate and firingRateVariance. The firingRateVariance adds variability to the firing rate, allowing for a more dynamic shooting pattern. The timeToNextProjectile value is clamped to ensure it doesn't go below the minimumFiringRate.
+
+The audioPlayer.PlayShootingClip() method is called to play the shooting sound effect, adding audio feedback to the shooting action. Finally, the coroutine waits for the calculated time interval before firing the next projectile, creating a continuous shooting effect.
+
+![Paso 5](imgs/Captura29.png)
+
+![Paso 5](imgs/Captura30.png)
