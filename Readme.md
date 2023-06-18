@@ -195,6 +195,7 @@ To address the damage issue for the player and the enemies, we made the followin
   ![Paso 5](imgs/Captura24.png)
   
   Here's a breakdown of what the code does:
+  
    Serialized Field: The script includes a serialized field named "damage." This field represents the amount of damage the object can deal and can be set in the Unity Inspector.
 
    GetDamage: This method allows other scripts to retrieve the damage value specified for the object.
