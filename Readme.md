@@ -253,3 +253,38 @@ To enhance the visual aspect of the game, a SpriteScroller script has been utili
 
 Overall, these additions contribute to the overall immersion and engagement of the players by providing visual and auditory feedback, as well as creating a dynamic and visually appealing game environment.
 
+## Level Manager
+To control the transitions of the different scenes we create a script called LevelManager. It is responsible for loading the game scene, main menu scene, and game over scene, as well as handling the quitting of the game.
+
+![Paso 6](imgs/Captura34.png)
+
+Upon awakening, the LevelManager script finds the ScoreKeeper component in the scene, which is used to reset the player's score.
+
+The LoadGame() function is called when the player wants to start a new game. It resets the score and loads the "SampleScene" where the gameplay takes place.
+
+The LoadMainMenu() function is responsible for loading the main menu scene when the player wants to return to the main menu from within the game.
+
+When the game is over, the LoadGameOver() function is called. It starts a coroutine called WaitAndLoad(), which waits for a specified delay (sceneLoadDelay) and then loads the "GameOver" scene. This delay allows for a smooth transition and ensures that the player has enough time to see the game over screen before proceeding.
+
+The QuitGame() function is used to quit the game entirely. When called, it logs a message to the console indicating that the game is quitting and then calls the Application.Quit() function to exit the application.
+
+The WaitAndLoad() coroutine is a utility function that waits for a specified delay and then loads the specified scene. It uses the WaitForSeconds() function to introduce the delay and SceneManager.LoadScene() to load the scene.
+
+## ScoreKeeper
+The ScoreKeeper script is responsible for managing the player's score throughout the game. It keeps track of the score value and provides functions to modify and reset it.
+
+![Paso 6](imgs/Captura35.png)
+
+Upon awakening, the ScoreKeeper script checks for any existing instances of itself. If an instance already exists, it deactivates the current game object and destroys it to ensure that only one ScoreKeeper instance exists in the game. If no instance exists, it assigns the current instance to the static variable "instance" and ensures that it persists across scene transitions using DontDestroyOnLoad().
+
+The GetScore() function returns the current score value.
+
+The ModifyScore() function is used to update the score. It takes in a value and adds it to the current score. The score is then clamped to ensure it doesn't go below zero, using Mathf.Clamp(). Finally, the updated score is logged to the console.
+
+The ResetScore() function resets the score to zero.
+
+Overall, the ScoreKeeper script serves as a central component for managing the player's score. It allows for score modifications, retrieval, and resetting, ensuring that the score remains consistent and can be accessed from different parts of the game. The use of a singleton pattern ensures that there is only one instance of the ScoreKeeper throughout the game.
+
+## Video
+If you want to see the explanation of this readme in video click here:
+
