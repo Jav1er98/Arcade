@@ -239,3 +239,17 @@ The audioPlayer.PlayShootingClip() method is called to play the shooting sound e
 ![Paso 5](imgs/Captura29.png)
 
 ![Paso 5](imgs/Captura30.png)
+
+## Effects
+In this part of the game development, various visual effects and sound elements have been incorporated to enhance the overall gameplay experience. As mentioned throughout the document, these additions can be observed in different sections of the code.
+
+One notable effect is the camera shake when the player is hit, which is achieved using the CameraShake script. This effect adds a sense of impact and intensity to the gameplay.
+
+Additionally, particle effects have been implemented when projectiles hit enemies and the player. These visual cues provide feedback to the player and make the interactions more visually appealing.
+
+Sound elements have also been included to enrich the audio experience of the game. Background music has been added to create an immersive atmosphere, while sound effects accompany the shooting actions. The audio playback is handled by the AudioPlayer script.
+
+To enhance the visual aspect of the game, a SpriteScroller script has been utilized. This script controls the scrolling effect of the background, giving the illusion of the player advancing through the game environment.
+
+Overall, these additions contribute to the overall immersion and engagement of the players by providing visual and auditory feedback, as well as creating a dynamic and visually appealing game environment.
+
