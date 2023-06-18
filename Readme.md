@@ -23,3 +23,28 @@ The primary focus during the game's development was to ensure smooth player move
 
 ## Input System
 To implement player controls, the new Unity Input System was utilized. The Input System package was installed via the Unity Package Manager. This system provides the ability to create custom actions for the player controls. By adding the Input System as a component to the player, default actions such as movement and shooting were already defined. To incorporate the Input System, the Player script was created. This script utilizes the InputSystem to detect player input and subsequently updates the player's movement and animation based on the input received.
+
+![Paso 3](imgs/Captura9.png) 
+
+![Paso 3](imgs/Captura11.png) 
+
+![Paso 3](imgs/Captura10.png) 
+
+## Player
+To manage the player's behavior, we created the "Player" script. In this script, we declare and initialize several variables and fields, including movement speed, padding values, input vectors, boundary vectors, and a reference to a Shooter component.
+
+In the Awake() method, we retrieve the Shooter component attached to the same GameObject as the Player script.
+
+In the Start() method, we call the InitBounds() function to initialize the boundaries of the play area based on the camera's viewport.
+
+In the Update() method, we call the Move() function to handle the player's movement.
+
+The InitBounds() function uses the Camera.main reference to calculate the minimum and maximum world positions based on the camera's viewport. This ensures that the player remains within the defined boundaries.
+
+The Move() function calculates the player's movement based on the raw input vector, movement velocity, and the elapsed time since the last frame. It applies the motion within the specified bounds, considering the padding values.
+
+The OnMove() function serves as an event handler triggered by input from the player's movement controls. It updates the rawInput vector accordingly.
+
+The OnFire() function is an event handler triggered by input from the player's firing controls. It sets the "isFiring" flag of the Shooter component based on the state of the input value (pressed or not pressed).
+
+In summary, the Player script manages the player's behavior by handling input, updating movement and animations, and ensuring the player stays within the defined bounds. Additionally, it controls the firing behavior through the Shooter component.
