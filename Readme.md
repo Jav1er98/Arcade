@@ -4,7 +4,7 @@
 The project  is a 2D Arcade space shooter game that provides players with an immersive experience of battling against hordes of enemies in outer space. Players control a spaceship and their primary objective is to survive as long as possible while eliminating enemy ships to earn points.
 
 ## Sprites
-The first thing that has been done in the search for some sprites, these are the sprites used for this project:
+The first thing that has been done in the search for some sprites. The assets used in the game are sourced from [kenney](https://kenney.nl/) website, which provides free assets for various game genres. One consideration when downloading and utilizing these assets was to ensure the appropriate texture type was used, specifically "Sprite (2D and UI)" for this particular case, these are the sprites used for this project:
  
  ![Paso 1](imgs/Captura1.png)  ![Paso 1](imgs/Captura3.png) ![Paso 1](imgs/Captura2.png) ![Paso 1](imgs/Captura4.png) 
  
@@ -20,3 +20,6 @@ In the gameplay screen, the player controls the blue ship while trying to avoid 
 The primary focus during the game's development was to ensure smooth player movement, enemy behavior, and balancing the player's life. Additionally, shooting mechanics were implemented for the player, and enemies were given their own life and scoring system. Visual effects and sound effects were added to enhance the overall experience. Various menu screens were also designed to improve the game's usability.
 
  ![Paso 2](imgs/Captura5.png) ![Paso 2](imgs/Captura7.png) ![Paso 2](imgs/Captura6.png) 
+
+## Input System
+To implement player controls, the new Unity Input System was utilized. The Input System package was installed via the Unity Package Manager. This system provides the ability to create custom actions for the player controls. By adding the Input System as a component to the player, default actions such as movement and shooting were already defined. To incorporate the Input System, the Player script was created. This script utilizes the InputSystem to detect player input and subsequently updates the player's movement and animation based on the input received.
