@@ -35,6 +35,8 @@ To manage the player's behavior, we created the "Player" script. In this script,
 
 ![Paso 3](imgs/Captura12.png) 
 
+![Paso 3](imgs/Captura13.png) 
+
 In the Awake() method, we retrieve the Shooter component attached to the same GameObject as the Player script.
 
 In the Start() method, we call the InitBounds() function to initialize the boundaries of the play area based on the camera's viewport.
