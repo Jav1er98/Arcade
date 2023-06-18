@@ -210,4 +210,10 @@ To address the damage issue for the player and the enemies, we made the followin
 ## Shooting
 With regards to shooting for both enemies and the player, a prefab has been created for each sprite, as mentioned earlier in the document. For the projectiles, a 2D Rigidbody and a 2D Capsule Collider have been added to represent their shape and allow them to act as triggers. Additionally, the DamageDealer script has been included. To distinguish between the player and enemy projectiles, two layers have been created—one for the player and another for the enemy. By assigning the appropriate layers, both the ships and projectiles will have their own designated layers.
 
+![Paso 5](imgs/Captura27.png)
+
+![Paso 5](imgs/Captura28.png)
+
+![Paso 5](imgs/Captura31.png)
+
 To enable the player to shoot, the Input System was implemented, specifically utilizing the space bar as the trigger input for shooting actions. This allows the player to initiate projectile firing when the space bar is pressed.
