@@ -119,3 +119,90 @@ The SpawnEnemyWaves() coroutine is responsible for spawning enemy waves based on
 Overall, the EnemySpawner script controls the spawning of enemy waves based on the provided wave configurations, allowing for flexible and customizable enemy spawning in the game.
 
 ![Paso 4](imgs/Captura22.png)
+
+## Damage
+To address the damage issue for the player and the enemies, we made the following adjustments:
+
+   Added a 2D Rigidbody component We attached a Rigidbody component to the GameObject. This allows us to apply physics-based movements and interactions.
+
+   Added a Circle Collider component: We included a Circle Collider component to the player GameObject. We adjusted the collider size to match the size of the sprite.
+   
+   ![Paso 5](imgs/Captura23.png)
+   
+   Created a Health script:  is responsible for managing the health of a game object, which can be either the player or other entities. 
+   
+   ![Paso 5](imgs/Captura25.png)  ![Paso 5](imgs/Captura26.png)
+   
+   Here's a breakdown of what the code does:
+
+   Serialized Fields: The script includes several serialized fields that can be set in the Unity Inspector. These fields include:
+   
+       "isPlayer": A boolean flag indicating whether the game object is the player.
+       
+       "health": An integer representing the initial health value of the game object.
+       
+       "score": An integer representing the score value associated with the game object (used when the game object is not the player).
+       
+       "hitEffect": A ParticleSystem that plays a visual effect when the game object takes damage.
+       
+       "applyCameraShake": A boolean flag indicating whether to apply camera shake when the game object takes damage.
+
+   Component References: In the "Awake" method, the script retrieves references to various components and managers needed for gameplay. These include:
+   
+        "cameraShake": A reference to the CameraShake script attached to the main camera.
+        
+        "audioPlayer": A reference to the AudioPlayer script responsible for playing audio clips.
+        
+        "scoreKeeper": A reference to the ScoreKeeper script, which manages the player's score.
+        
+        "levelManager": A reference to the LevelManager script, used to load the game over screen.
+
+   OnTriggerEnter2D: This method is called when the game object's collider enters a trigger collider on another object. It checks if the colliding object has a "DamageDealer" component attached to it.
+        If a "DamageDealer" component is found, the script proceeds to:
+        
+            Call the "TakeDamage" method, passing the damage value from the "DamageDealer" component.
+            
+            Play the hit effect particle system.
+            
+            Play the damage audio clip.
+            
+            Trigger camera shake.
+            
+            Call the "Hit" method on the "DamageDealer" component, indicating that it successfully hit the game object.
+
+   TakeDamage: This method is responsible for reducing the game object's health by the specified damage amount.
+   
+        It subtracts the damage from the current health value.
+        
+        If the health reaches or falls below zero, the "Die" method is called.
+
+   Die: This method is called when the game object's health reaches zero or below.
+   
+        If the game object is not the player, it modifies the score by the specified value.
+        
+        If the game object is the player, it calls the "LoadGameOver" method on the level manager to handle the game over scenario.
+        
+        Finally, it destroys the game object.
+
+   PlayHitEffect: This method instantiates the hit effect particle system at the position of the game object.
+   
+        The instantiated particle system is destroyed after its duration and maximum lifetime.
+
+   ShakeCamera: This method triggers the camera shake effect if the "applyCameraShake" flag is enabled and a CameraShake component is present on the main camera.
+
+  Created a DamagedDealer script: Is responsible for determining the damage value of an object and destroying it upon impact.
+  
+  ![Paso 5](imgs/Captura24.png)
+  
+  Here's a breakdown of what the code does:
+   Serialized Field: The script includes a serialized field named "damage." This field represents the amount of damage the object can deal and can be set in the Unity Inspector.
+
+   GetDamage: This method allows other scripts to retrieve the damage value specified for the object.
+   
+           It simply returns the value stored in the "damage" field.
+
+   Hit: This method is called when the object is hit or impacted by something.
+   
+        It destroys the game object to which the script is attached using the Destroy function.
+            The Destroy function removes the object from the scene, freeing up memory resources.
+
