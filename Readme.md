@@ -33,6 +33,8 @@ To implement player controls, the new Unity Input System was utilized. The Input
 ## Player
 To manage the player's behavior, we created the "Player" script. In this script, we declare and initialize several variables and fields, including movement speed, padding values, input vectors, boundary vectors, and a reference to a Shooter component.
 
+![Paso 3](imgs/Captura12.png) 
+
 In the Awake() method, we retrieve the Shooter component attached to the same GameObject as the Player script.
 
 In the Start() method, we call the InitBounds() function to initialize the boundaries of the play area based on the camera's viewport.
@@ -46,5 +48,3 @@ The Move() function calculates the player's movement based on the raw input vect
 The OnMove() function serves as an event handler triggered by input from the player's movement controls. It updates the rawInput vector accordingly.
 
 The OnFire() function is an event handler triggered by input from the player's firing controls. It sets the "isFiring" flag of the Shooter component based on the state of the input value (pressed or not pressed).
-
-In summary, the Player script manages the player's behavior by handling input, updating movement and animations, and ensuring the player stays within the defined bounds. Additionally, it controls the firing behavior through the Shooter component.
