@@ -286,5 +286,5 @@ The ResetScore() function resets the score to zero.
 Overall, the ScoreKeeper script serves as a central component for managing the player's score. It allows for score modifications, retrieval, and resetting, ensuring that the score remains consistent and can be accessed from different parts of the game. The use of a singleton pattern ensures that there is only one instance of the ScoreKeeper throughout the game.
 
 ## Video
-If you want to see the explanation of this project in video click here:https://www.youtube.com/watch?v=ug6puB1jesQ
+If you want to see the explanation of this project in video click here: https://www.youtube.com/watch?v=ug6puB1jesQ
 
